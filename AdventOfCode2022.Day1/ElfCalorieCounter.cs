@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,45 @@ namespace AdventOfCode2022.Day1
         public ElfCalorieCounter() { }
 
         public int GetMaxCalorieCountOfSingleElf(string input)
+        {                        
+            return ParseInput(input).Max();            
+        }
+
+        public int GetSumCaloriesOfTopElves(string input, int elfCount)
         {
-            if(string.IsNullOrEmpty(input))
+            return ParseInput(input).OrderByDescending(x => x).Take(elfCount).Sum();
+        }
+
+        private List<int> ParseInput(string input)
+        {
+            if (string.IsNullOrEmpty(input))
             {
-                throw new ArgumentException(nameof(input));
+                throw new ArgumentException("Can't handle null or empty input", nameof(input));
             }
 
-            throw new NotImplementedException();
+            var result = new List<int>();
+            var splittedInput = input.Split(Environment.NewLine);
+            int currentCount = 0;
+            foreach (var line in splittedInput)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    result.Add(currentCount);
+                    currentCount = 0;
+                    continue;
+                }
+
+                currentCount += int.Parse(line);
+            }
+
+            if(currentCount != 0)
+            {
+                result.Add(currentCount);
+            }
+
+            Debug.WriteLine($"Counts: {string.Join(',', result)}");
+
+            return result;
         }
     }
 }

@@ -9,5 +9,6 @@ namespace AdventOfCode2022.Day1
     public interface IElfCalorieCounter
     {
         int GetMaxCalorieCountOfSingleElf(string input);
+        int GetSumCaloriesOfTopElves(string input, int elfCount);
     }
 }
