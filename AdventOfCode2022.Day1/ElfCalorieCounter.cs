@@ -18,7 +18,7 @@ namespace AdventOfCode2022.Day1
 
         public int GetSumCaloriesOfTopElves(string input, int elfCount)
         {
-            return ParseInput(input).OrderByDescending(x => x).Take(elfCount).Sum();
+            return ParseInput(input).OrderDescending().Take(elfCount).Sum();
         }
 
         private List<int> ParseInput(string input)
@@ -28,7 +28,7 @@ namespace AdventOfCode2022.Day1
                 throw new ArgumentException("Can't handle null or empty input", nameof(input));
             }
 
-            var result = new List<int>();
+            List<int> result = new();
             var splittedInput = input.Split(Environment.NewLine);
             int currentCount = 0;
             foreach (var line in splittedInput)
