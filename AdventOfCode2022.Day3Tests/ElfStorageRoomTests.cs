@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using AdventOfCode2022.Shared;
 
 namespace AdventOfCode2022.Day3.Tests
 {

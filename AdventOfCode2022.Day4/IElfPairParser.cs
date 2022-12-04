@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.Day3
+namespace AdventOfCode2022.Day4
 {
-    public interface IStringSplitter
+    public interface IElfPairParser
     {
-        string[] Split(string content);
+        ElfPair Parse(string raw);
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2022.Day3
+namespace AdventOfCode2022.Shared
 {
     public class NewLineSplitter : IStringSplitter
     {
