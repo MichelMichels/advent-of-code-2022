@@ -12,7 +12,7 @@ namespace AdventOfCode2022.Day4
         {
 
         }
-        public SectionIdRange One { get; set; }
-        public SectionIdRange Two { get; set; }
+        public Range One { get; set; }
+        public Range Two { get; set; }
     }
 }

@@ -20,8 +20,8 @@ namespace AdventOfCode2022.Day4.Tests
             // Act
             var result = overlapChecker.IsOverlapping(new ElfPair()
             {
-                One = new SectionIdRange(0, 1),
-                Two = new SectionIdRange(1, 2),
+                One = new Range(0, 1),
+                Two = new Range(1, 2),
             });
 
             // Assert
@@ -37,8 +37,8 @@ namespace AdventOfCode2022.Day4.Tests
             // Act
             var result = overlapChecker.IsOverlapping(new ElfPair()
             {
-                One = new SectionIdRange(0, 1),
-                Two = new SectionIdRange(7, 8),
+                One = new Range(0, 1),
+                Two = new Range(7, 8),
             });
 
             // Assert

@@ -14,11 +14,10 @@ namespace AdventOfCode2022.Day4
             return DoesRangeOverlap(elfPair.One, elfPair.Two);
         }
 
-        private bool DoesRangeOverlap(SectionIdRange one, SectionIdRange two)
+        private bool DoesRangeOverlap(Range one, Range two)
         {
-            var rangeOne = Enumerable.Range(one.Start, one.End - one.Start + 1);
-            var rangeTwo = Enumerable.Range(two.Start, two.End - two.Start + 1);
-
+            var rangeOne = Enumerable.Range(one.Start.Value, one.End.Value - one.Start.Value + 1);
+            var rangeTwo = Enumerable.Range(two.Start.Value, two.End.Value - two.Start.Value + 1);
             return rangeOne.Intersect(rangeTwo).Any();
         }
     }

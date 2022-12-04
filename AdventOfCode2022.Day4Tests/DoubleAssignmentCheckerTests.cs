@@ -12,19 +12,19 @@ namespace AdventOfCode2022.Day4.Tests
     public class DoubleAssignmentCheckerTests
     {
         [TestMethod()]
-        [DataRow(5,5,4,6)]
-        [DataRow(4,6,5,5)]
+        [DataRow(5, 5, 4, 6)]
+        [DataRow(4, 6, 5, 5)]
         public void IsDoubleAssignedTest(int startOne, int endOne, int startTwo, int endTwo)
         {
             var pair = new ElfPair()
             {
-                One = new SectionIdRange(startOne, endOne),
-                Two = new SectionIdRange(startTwo, endTwo),
+                One = new Range(startOne, endOne),
+                Two = new Range(startTwo, endTwo),
             };
 
             var checker = new DoubleAssignmentChecker();
             var result = checker.IsDoubleAssigned(pair);
-            
+
             Assert.IsTrue(result);
         }
 
@@ -35,8 +35,8 @@ namespace AdventOfCode2022.Day4.Tests
         {
             var pair = new ElfPair()
             {
-                One = new SectionIdRange(startOne, endOne),
-                Two = new SectionIdRange(startTwo, endTwo),
+                One = new Range(startOne, endOne),
+                Two = new Range(startTwo, endTwo),
             };
 
             var checker = new DoubleAssignmentChecker();

@@ -13,9 +13,9 @@ namespace AdventOfCode2022.Day4
             return DoesRangeContainSecondRange(pair.One, pair.Two) || DoesRangeContainSecondRange(pair.Two, pair.One);
         }
 
-        private bool DoesRangeContainSecondRange(SectionIdRange one, SectionIdRange two)
+        private bool DoesRangeContainSecondRange(Range one, Range two)
         {
-            return one.Start <= two.Start && one.End >= two.End;
+            return one.Start.Value <= two.Start.Value && one.End.Value >= two.End.Value;
         }
     }
 }

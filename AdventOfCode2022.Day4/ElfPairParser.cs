@@ -15,8 +15,8 @@ namespace AdventOfCode2022.Day4
 
             var rangeOne = parts[0].Split('-');
             var rangeTwo = parts[1].Split('-');
-            pair.One = new SectionIdRange(int.Parse(rangeOne[0]), int.Parse(rangeOne[1]));
-            pair.Two = new SectionIdRange(int.Parse(rangeTwo[0]), int.Parse(rangeTwo[1]));
+            pair.One = new Range(int.Parse(rangeOne[0]), int.Parse(rangeOne[1]));
+            pair.Two = new Range(int.Parse(rangeTwo[0]), int.Parse(rangeTwo[1]));
 
             return pair;
         }
