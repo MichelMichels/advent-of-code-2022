@@ -1,7 +1,12 @@
 ﻿using AdventOfCode2022.Day3;
+using AdventOfCode2022.Shared;
 
-WriteToConsole("Advent of code 2022 - Day 3");
-WriteToConsole();
+string inputFilePath = "input.txt";
+IConsoleWriter consoleWriter = new ConsoleWriter(ConsoleColor.Yellow);
+
+consoleWriter.WriteLine("Advent of code 2022 - Day 3");
+consoleWriter.WriteLine("===========================");
+consoleWriter.WriteLine();
 
 IStringIntersecter stringIntersecter = new StringIntersecter();
 IPriorityCalculator priorityCalculator = new PriorityCalculator();
@@ -14,34 +19,28 @@ var storageRoom = new ElfStorageRoom(
     stringIntersecter,
     stringSplitter);
 
-var content = File.ReadAllText("input.txt");
+var content = File.ReadAllText(inputFilePath);
+consoleWriter.WriteLine($"Contents of {inputFilePath} read.");
 
-PartOne(storageRoom, content);
-PartTwo(storageRoom, content);
+PartOne(storageRoom, consoleWriter, content);
+PartTwo(storageRoom, consoleWriter, content);
 
-static void PartOne(IElfStorageRoom storageRoom, string content)
+static void PartOne(IElfStorageRoom storageRoom, IConsoleWriter consoleWriter, string content)
 {
-    WriteToConsole("Part one", ConsoleColor.Red);
-    WriteToConsole("========", ConsoleColor.Red);
+    consoleWriter.WriteLine("Part one", ConsoleColor.Red);
+    consoleWriter.WriteLine("--------", ConsoleColor.Red);
 
     var priorityScore = storageRoom.CalculatePriorityOfSingleRucksacks(content);
 
-    WriteToConsole($"The priority score is {priorityScore}.", ConsoleColor.Green);
-    WriteToConsole();
+    consoleWriter.WriteLine($"The priority score is {priorityScore}.", ConsoleColor.Green);
+    consoleWriter.WriteLine();
 }
-static void PartTwo(IElfStorageRoom storageRoom, string content)
+static void PartTwo(IElfStorageRoom storageRoom, IConsoleWriter consoleWriter, string content)
 {
-    WriteToConsole("Part two", ConsoleColor.Red);
-    WriteToConsole("========", ConsoleColor.Red);
+    consoleWriter.WriteLine("Part two", ConsoleColor.Red);
+    consoleWriter.WriteLine("--------", ConsoleColor.Red);
 
     var result = storageRoom.CalculatePriorityOfThreeElfGroupRucksacks(content);
 
-    WriteToConsole($"The answer is {result}.", ConsoleColor.Green);
-}
-
-static void WriteToConsole(string content = "", ConsoleColor foregroundColor = ConsoleColor.White)
-{
-    Console.ForegroundColor = foregroundColor;
-    Console.WriteLine(content);
-    Console.ForegroundColor = ConsoleColor.White;
+    consoleWriter.WriteLine($"The answer is {result}.", ConsoleColor.Green);
 }
