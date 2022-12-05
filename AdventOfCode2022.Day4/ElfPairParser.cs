@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022.Day4
+﻿namespace AdventOfCode2022.Day4
 {
     public class ElfPairParser : IElfPairParser
     {
-        public ElfPair Parse(string raw)
+        private const char rangeSeparator = ',';
+        private const char indexSeparator = '-';
+
+        public ElfPair Parse(string input)
         {
-            var pair = new ElfPair();
-            var parts = raw.Split(',');
+            var ranges = input.Split(rangeSeparator);                                   
+            return new ElfPair(ParseRange(ranges[0]), ParseRange(ranges[1]));            
+        }
 
-            var rangeOne = parts[0].Split('-');
-            var rangeTwo = parts[1].Split('-');
-            pair.One = new Range(int.Parse(rangeOne[0]), int.Parse(rangeOne[1]));
-            pair.Two = new Range(int.Parse(rangeTwo[0]), int.Parse(rangeTwo[1]));
-
-            return pair;
+        private Range ParseRange(string range)
+        {
+            var parts = range.Split(indexSeparator);
+            return new Range(int.Parse(parts[0]), int.Parse(parts[1]));
         }
     }
 }

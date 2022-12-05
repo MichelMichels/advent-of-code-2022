@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Day4;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Day4.Tests
 {
@@ -18,11 +12,8 @@ namespace AdventOfCode2022.Day4.Tests
             var overlapChecker = new OverlapChecker();
 
             // Act
-            var result = overlapChecker.IsOverlapping(new ElfPair()
-            {
-                One = new Range(0, 1),
-                Two = new Range(1, 2),
-            });
+            ElfPair pair = new(new Range(0, 1), new Range(1, 2));
+            var result = overlapChecker.IsOverlapping(pair);
 
             // Assert
             Assert.IsTrue(result);
@@ -35,11 +26,8 @@ namespace AdventOfCode2022.Day4.Tests
             var overlapChecker = new OverlapChecker();
 
             // Act
-            var result = overlapChecker.IsOverlapping(new ElfPair()
-            {
-                One = new Range(0, 1),
-                Two = new Range(7, 8),
-            });
+            ElfPair pair = new(new Range(0, 1), new Range(7, 8));
+            var result = overlapChecker.IsOverlapping(pair);
 
             // Assert
             Assert.IsFalse(result);

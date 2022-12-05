@@ -11,7 +11,7 @@ namespace AdventOfCode2022.Day4
     {
         public bool IsOverlapping(ElfPair elfPair)
         {
-            return DoesRangeOverlap(elfPair.One, elfPair.Two);
+            return DoesRangeOverlap(elfPair.First, elfPair.Second);
         }
 
         private bool DoesRangeOverlap(Range one, Range two)

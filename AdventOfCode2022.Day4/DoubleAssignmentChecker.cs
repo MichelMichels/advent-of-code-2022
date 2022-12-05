@@ -10,7 +10,7 @@ namespace AdventOfCode2022.Day4
     {
         public bool IsDoubleAssigned(ElfPair pair)
         {
-            return DoesRangeContainSecondRange(pair.One, pair.Two) || DoesRangeContainSecondRange(pair.Two, pair.One);
+            return DoesRangeContainSecondRange(pair.First, pair.Second) || DoesRangeContainSecondRange(pair.Second, pair.First);
         }
 
         private bool DoesRangeContainSecondRange(Range one, Range two)

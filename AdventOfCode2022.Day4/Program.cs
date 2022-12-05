@@ -1,52 +1,76 @@
 ﻿using AdventOfCode2022.Day4;
 using AdventOfCode2022.Shared;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-internal class Program
+string inputFilePath = "input.txt";
+
+using IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((_, services) => 
+        services
+            .AddSingleton<IConsoleWriter>(services => new ConsoleWriter(ConsoleColor.Yellow))
+            .AddSingleton<IStringSplitter, NewLineSplitter>()
+            .AddSingleton<IInputParser, InputParser>()
+            .AddSingleton<IElfPairParser, ElfPairParser>()
+            .AddSingleton<IDoubleAssignmentChecker, DoubleAssignmentChecker>()
+            .AddSingleton<IOverlapChecker, OverlapChecker>())    
+    .Build();
+
+SolveChallenges(inputFilePath, host.Services);
+
+await host.RunAsync();
+
+static void SolveChallenges(string inputFilePath, IServiceProvider services)
 {
-    private static IConsoleWriter consoleWriter;
-    private static IStringSplitter stringSplitter;
-    private static IInputParser inputParser;
-    private static IElfPairParser elfPairParser;
-    private static IDoubleAssignmentChecker doubleAssignmentChecker;
-    private static IOverlapChecker overlapChecker;
+    using IServiceScope serviceScope = services.CreateScope();
+    IServiceProvider provider = serviceScope.ServiceProvider;
 
-    private static void Main(string[] args)
-    {
-        elfPairParser = new ElfPairParser();
-        stringSplitter = new NewLineSplitter();
-        inputParser = new InputParser(stringSplitter);
-        doubleAssignmentChecker = new DoubleAssignmentChecker();
-        overlapChecker = new OverlapChecker();
+    IConsoleWriter consoleWriter = provider.GetRequiredService<IConsoleWriter>();
+    IInputParser inputParser = provider.GetRequiredService<IInputParser>();
+    IElfPairParser elfPairParser = provider.GetRequiredService<IElfPairParser>();
 
-        consoleWriter = new ConsoleWriter(ConsoleColor.Yellow);
-        consoleWriter.WriteLine("Advent of code 2022 - Day 4");
-        consoleWriter.WriteLine("===========================");
-        consoleWriter.WriteLine();
+    PrintWelcomeBanner(consoleWriter);
+    
+    var content = inputParser.ParseTextFile(inputFilePath);
+    var elfPairs = content.Select(elfPairParser.Parse);
 
-        var content = inputParser.ParseTextFile("input.txt");
-        var elfPairs = content.Select(elfPairParser.Parse);
+    SolvePartOne(elfPairs, consoleWriter, provider.GetRequiredService<IDoubleAssignmentChecker>());
+    SolvePartTwo(elfPairs, consoleWriter, provider.GetRequiredService<IOverlapChecker>());
+}
+static void SolvePartOne(IEnumerable<ElfPair> elfPairs, IConsoleWriter consoleWriter, IDoubleAssignmentChecker doubleAssignmentChecker)
+{
+    PrintPartBanner(consoleWriter, 1);
 
-        SolvePartOne(elfPairs);
-        SolvePartTwo(elfPairs);
-    }
+    var count = elfPairs
+        .Where(doubleAssignmentChecker.IsDoubleAssigned)
+        .Count();
 
-    static void SolvePartOne(IEnumerable<ElfPair> elfPairs)
-    {
-        consoleWriter.WriteLine("Part 1");
-        consoleWriter.WriteLine("------");
+    PrintAnswer(consoleWriter, $"The amount of double assigned pairs is {count}.");
+}
+static void SolvePartTwo(IEnumerable<ElfPair> elfPairs, IConsoleWriter consoleWriter, IOverlapChecker overlapChecker)
+{
+    PrintPartBanner(consoleWriter, 2);
 
-        var count = elfPairs.Where(doubleAssignmentChecker.IsDoubleAssigned).Count();
+    var count = elfPairs
+        .Where(overlapChecker.IsOverlapping)
+        .Count();
 
-        consoleWriter.WriteLine($"The amount of double assigned pairs is {count}.", ConsoleColor.Green);
-    }
+    PrintAnswer(consoleWriter, $"The amount of overlapping pairs is {count}.");
+}
 
-    static void SolvePartTwo(IEnumerable<ElfPair> elfPairs)
-    {
-        consoleWriter.WriteLine("Part 2");
-        consoleWriter.WriteLine("------");
-
-        var count = elfPairs.Where(overlapChecker.IsOverlapping).Count();
-
-        consoleWriter.WriteLine($"The amount of overlapping pairs is {count}.", ConsoleColor.Green);
-    }
+static void PrintWelcomeBanner(IConsoleWriter consoleWriter)
+{
+    consoleWriter.WriteLine("Advent of code 2022 - Day 4");
+    consoleWriter.WriteLine("===========================");
+    consoleWriter.WriteLine();
+}
+static void PrintPartBanner(IConsoleWriter consoleWriter, int index)
+{
+    consoleWriter.WriteLine($"Part {index}");
+    consoleWriter.WriteLine($"------");
+}
+static void PrintAnswer(IConsoleWriter consoleWriter,  string answer)
+{
+    consoleWriter.WriteLine(answer, ConsoleColor.Green);
+    consoleWriter.WriteLine();
 }

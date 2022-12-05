@@ -21,10 +21,10 @@ namespace AdventOfCode2022.Day4.Tests
             var pair = parser.Parse("2-4,6-8");
 
             // Assert
-            Assert.AreEqual(2, pair.One.Start);
-            Assert.AreEqual(4, pair.One.End);
-            Assert.AreEqual(6, pair.Two.Start);
-            Assert.AreEqual(8, pair.Two.End);
+            Assert.AreEqual(2, pair.First.Start);
+            Assert.AreEqual(4, pair.First.End);
+            Assert.AreEqual(6, pair.Second.Start);
+            Assert.AreEqual(8, pair.Second.End);
         }
     }
 }
