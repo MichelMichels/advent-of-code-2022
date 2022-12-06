@@ -14,7 +14,8 @@ using IHost host = Host.CreateDefaultBuilder(args)
             .AddSingleton<IInterpreter<RearrangementProcedure[]>, RearrangementProcedureInterpreter>()
             .AddSingleton<IInterpreter<CrateStack[]>, CrateStackInterpreter>()
             .AddSingleton<IInterpreter<Instruction>, InstructionInterpreter>()
-            .AddSingleton<IGiantCargoCrane, GiantCargoCrane>())            
+            .AddSingleton<ICrateMover9000, CrateMover9000>()
+            .AddSingleton<ICrateMover9001, CrateMover9001>())            
     .Build();
 
 SolveChallenges(inputFilePath, host.Services);
@@ -34,7 +35,7 @@ static void SolveChallenges(string inputFilePath, IServiceProvider services)
     var content = inputParser.ParseTextFile(inputFilePath);
 
     SolvePartOne(content, provider);
-    //SolvePartTwo(elfPairs, consoleWriter, provider.GetRequiredService<IOverlapChecker>());
+    SolvePartTwo(content, provider);
 }
 static void SolvePartOne(string[] content, IServiceProvider services)
 {
@@ -42,20 +43,33 @@ static void SolvePartOne(string[] content, IServiceProvider services)
     PrintPartBanner(consoleWriter, 1);
 
     var instructionInterpreter = services.GetRequiredService<IInterpreter<Instruction>>();
-    var giantCrane = services.GetRequiredService<IGiantCargoCrane>();
+    var giantCrane = services.GetRequiredService<ICrateMover9000>();
 
     consoleWriter.WriteLine("Interpreting input...");
     var instruction = instructionInterpreter.Interpret(content);
 
-    consoleWriter.WriteLine("Rearranging crates with a giant crane...");
+    consoleWriter.WriteLine("Rearranging crates with CrateMover9000...");
     giantCrane.Rearrange(instruction);
 
     var answer = new String(instruction.CrateStacks.Select(x => x.Peek()).ToArray());
     PrintAnswer(consoleWriter, $"The answer is {answer}.");
 }
-static void SolvePartTwo(IConsoleWriter consoleWriter)
+static void SolvePartTwo(string[] content, IServiceProvider services)
 {
+    var consoleWriter = services.GetRequiredService<IConsoleWriter>();
     PrintPartBanner(consoleWriter, 2);
+
+    var instructionInterpreter = services.GetRequiredService<IInterpreter<Instruction>>();
+    var giantCrane = services.GetRequiredService<ICrateMover9001>();
+
+    consoleWriter.WriteLine("Interpreting input...");
+    var instruction = instructionInterpreter.Interpret(content);
+
+    consoleWriter.WriteLine("Rearranging crates with CrateMover9001...");
+    giantCrane.Rearrange(instruction);
+
+    var answer = new String(instruction.CrateStacks.Select(x => x.Peek()).ToArray());
+    PrintAnswer(consoleWriter, $"The answer is {answer}.");
 }
 
 static void PrintWelcomeBanner(IConsoleWriter consoleWriter)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Day5
 {
-    public interface IGiantCargoCrane
+    public interface ICrateMover
     {
         void Rearrange(Instruction instruction);
     }

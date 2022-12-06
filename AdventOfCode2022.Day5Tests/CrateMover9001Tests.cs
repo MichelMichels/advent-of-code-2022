@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace AdventOfCode2022.Day5.Tests
 {
     [TestClass()]
-    public class GiantCargoCraneTests
+    public class CrateMover9001Tests
     {
         [TestMethod()]
         public void RearrangeTest()
         {
             // Arrange
-            var crane = new GiantCargoCrane();
+            var crane = new CrateMover9001();
 
             var crateStacks = new CrateStack[]
             {
@@ -24,11 +24,10 @@ namespace AdventOfCode2022.Day5.Tests
             };
             crateStacks[0].Push('B');
             crateStacks[0].Push('A');
-            crateStacks[1].Push('C');
 
             var procedures = new RearrangementProcedure[]
             {
-                new RearrangementProcedure(1, 2, 1),
+                new RearrangementProcedure(2, 1, 2),
             };
             var instruction = new Instruction(crateStacks, procedures);
 
@@ -36,9 +35,8 @@ namespace AdventOfCode2022.Day5.Tests
             crane.Rearrange(instruction);
 
             // Assert
-            Assert.AreEqual('C', crateStacks[0].Pop());
-            Assert.AreEqual('A', crateStacks[0].Pop());
-            Assert.AreEqual('B', crateStacks[0].Pop());
+            Assert.AreEqual('A', crateStacks[1].Pop());
+            Assert.AreEqual('B', crateStacks[1].Pop());            
         }
     }
 }
