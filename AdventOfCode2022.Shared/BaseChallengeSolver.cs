@@ -15,12 +15,12 @@ namespace AdventOfCode2022.Shared
         }
         public abstract int DayNumber { get; }
 
-        public void Solve()
+        public void Solve(string filePath)
         {
             messageWriter.WriteBanner();
             messageWriter.WriteDayBanner(DayNumber);
 
-            BeforeSolvingParts();
+            BeforeSolvingParts(filePath);
 
             messageWriter.WritePartBanner(1);
             SolvePartOne();
@@ -29,7 +29,7 @@ namespace AdventOfCode2022.Shared
             SolvePartTwo();
         }
 
-        protected virtual void BeforeSolvingParts() { }
+        protected virtual void BeforeSolvingParts(string filePath) { }
         protected abstract void SolvePartOne();
         protected abstract void SolvePartTwo();
     }

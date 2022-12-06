@@ -20,10 +20,10 @@ namespace AdventOfCode2022.Day6
 
         public override int DayNumber => 6;
 
-        protected override void BeforeSolvingParts()
+        protected override void BeforeSolvingParts(string filePath)
         {
-            messageWriter.WriteMessage("Parsing input.txt...");
-            stream = inputParser.ParseTextFile("input.txt").First();
+            messageWriter.WriteMessage($"Parsing {filePath}...");
+            stream = inputParser.ParseTextFile(filePath).First();
 
             messageWriter.WriteNewLine();
         }

@@ -10,6 +10,6 @@ namespace AdventOfCode2022.Shared
     {
         int DayNumber { get; }
 
-        void Solve();
+        void Solve(string filePath);
     }
 }

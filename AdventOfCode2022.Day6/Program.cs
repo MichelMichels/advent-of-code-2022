@@ -20,6 +20,6 @@ IHost host = Host.CreateDefaultBuilder(args)
 
 host.Services
     .GetRequiredService<IChallengeSolver>()
-    .Solve();
+    .Solve("input.txt");
 
 await host.RunAsync();
