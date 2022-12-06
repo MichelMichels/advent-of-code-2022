@@ -4,7 +4,6 @@ namespace AdventOfCode2022.Day6
 {
     public class Day6Solver : BaseChallengeSolver
     {
-        private readonly IInputParser inputParser;
         private readonly IDatastreamDecoder datastreamDecoder;
 
         private string stream = string.Empty;
@@ -12,20 +11,16 @@ namespace AdventOfCode2022.Day6
         public Day6Solver(
             IInputParser inputParser,
             IDatastreamDecoder datastreamDecoder,
-            IMessageWriter messageWriter) : base(messageWriter)
+            IMessageWriter messageWriter) : base(messageWriter, inputParser)
         {
-            this.inputParser = inputParser ?? throw new ArgumentNullException(nameof(inputParser));
             this.datastreamDecoder = datastreamDecoder ?? throw new ArgumentNullException(nameof(datastreamDecoder));
         }
 
         public override int DayNumber => 6;
 
-        protected override void BeforeSolvingParts(string filePath)
+        protected override void AfterParsing()
         {
-            messageWriter.WriteMessage($"Parsing {filePath}...");
-            stream = inputParser.ParseTextFile(filePath).First();
-
-            messageWriter.WriteNewLine();
+            stream = parsed.First();
         }
 
         protected override void SolvePartOne()

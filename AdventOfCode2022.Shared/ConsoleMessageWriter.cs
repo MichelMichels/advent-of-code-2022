@@ -11,29 +11,29 @@
 
         public void WriteAnswer(string answer)
         {
-            consoleWriter.WriteLine(answer, ConsoleColor.Green);
+            consoleWriter.WriteLine($"[\u2713] {answer}", ConsoleColor.Green);
             consoleWriter.WriteLine();
         }
 
         public void WriteBanner()
         {
-            consoleWriter.WriteLine("Advent of Code 2022", ConsoleColor.DarkBlue);
+            consoleWriter.WriteLine("[*] Advent of Code 2022", ConsoleColor.DarkBlue);
         }
 
         public void WriteDayBanner(int day)
         {
-            consoleWriter.WriteLine($"Day {day}", ConsoleColor.Blue);
+            consoleWriter.WriteLine($"[*] Day {day}", ConsoleColor.Blue);
             consoleWriter.WriteLine();
         }
 
         public void WriteMessage(string message)
         {
-            consoleWriter.WriteLine(message);
+            consoleWriter.WriteLine($"[i] {message}");
         }
 
         public void WritePartBanner(int part)
         {
-            consoleWriter.WriteLine($"Part {part}", ConsoleColor.Cyan);
+            consoleWriter.WriteLine($"[*] Part {part}", ConsoleColor.Cyan);
         }
         public void WriteNewLine() => consoleWriter.WriteLine();
     }
