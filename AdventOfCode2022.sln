@@ -15,13 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day3", "Ad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day3Tests", "AdventOfCode2022.Day3Tests\AdventOfCode2022.Day3Tests.csproj", "{17D961E5-C437-4CE9-B8DB-14F9D44F0BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day4", "AdventOfCode2022.Day4\AdventOfCode2022.Day4.csproj", "{C03BD617-017A-4413-9444-2AAB09EEAC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day4", "AdventOfCode2022.Day4\AdventOfCode2022.Day4.csproj", "{C03BD617-017A-4413-9444-2AAB09EEAC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Shared", "AdventOfCode2022.Shared\AdventOfCode2022.Shared.csproj", "{5E8EDE62-7A75-4E63-AAAA-E84CA2372E7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Shared", "AdventOfCode2022.Shared\AdventOfCode2022.Shared.csproj", "{5E8EDE62-7A75-4E63-AAAA-E84CA2372E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.SharedTests", "AdventOfCode2022.SharedTests\AdventOfCode2022.SharedTests.csproj", "{B1247017-8F20-4E23-AF04-31BF23792BEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.SharedTests", "AdventOfCode2022.SharedTests\AdventOfCode2022.SharedTests.csproj", "{B1247017-8F20-4E23-AF04-31BF23792BEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day4Tests", "AdventOfCode2022.Day4Tests\AdventOfCode2022.Day4Tests.csproj", "{F785155D-F779-4BD3-AF94-C3DAE08EA0E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day4Tests", "AdventOfCode2022.Day4Tests\AdventOfCode2022.Day4Tests.csproj", "{F785155D-F779-4BD3-AF94-C3DAE08EA0E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day5", "AdventOfCode2022.Day5\AdventOfCode2022.Day5.csproj", "{13BC9B13-C967-4314-9F39-6C5EB6E7D4B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day5Tests", "AdventOfCode2022.Day5Tests\AdventOfCode2022.Day5Tests.csproj", "{6999867C-3E4B-43AC-9298-7C612EC4AC38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{F785155D-F779-4BD3-AF94-C3DAE08EA0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F785155D-F779-4BD3-AF94-C3DAE08EA0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F785155D-F779-4BD3-AF94-C3DAE08EA0E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BC9B13-C967-4314-9F39-6C5EB6E7D4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BC9B13-C967-4314-9F39-6C5EB6E7D4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BC9B13-C967-4314-9F39-6C5EB6E7D4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BC9B13-C967-4314-9F39-6C5EB6E7D4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6999867C-3E4B-43AC-9298-7C612EC4AC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6999867C-3E4B-43AC-9298-7C612EC4AC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6999867C-3E4B-43AC-9298-7C612EC4AC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6999867C-3E4B-43AC-9298-7C612EC4AC38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

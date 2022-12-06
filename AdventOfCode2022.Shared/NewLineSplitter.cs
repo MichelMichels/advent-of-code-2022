@@ -17,7 +17,7 @@ namespace AdventOfCode2022.Shared
                 separator = "\r\n";
             }
 
-            return content.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            return content.Split(separator, StringSplitOptions.None);
         }
     }
 }
