@@ -10,6 +10,7 @@ namespace AdventOfCode2022.Shared
     {
         private ConsoleColor defaultForeground;
 
+        public ConsoleWriter() : this(ConsoleColor.White) { }
         public ConsoleWriter(ConsoleColor defaultForeground)
         {
             this.defaultForeground = defaultForeground;
