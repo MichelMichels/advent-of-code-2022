@@ -30,7 +30,9 @@
                 }
             }
 
-            return new DecodedData(currentStartIndex + markerCount, new string(chars.ToArray()));
+            var numberOfCharactersBeforeMarker = currentStartIndex + markerCount;
+            var marker = new string(chars.ToArray());
+            return new DecodedData(numberOfCharactersBeforeMarker, marker);
         }
     }
 }
