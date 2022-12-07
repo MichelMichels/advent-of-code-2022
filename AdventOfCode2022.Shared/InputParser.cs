@@ -14,14 +14,19 @@
             return stringSplitter.Split(content);
         }
 
-        public string[] ParseTextFile(string inputFilePath)
+        public string[] ParseTextFile(string filePath)
         {
-            if (string.IsNullOrEmpty(inputFilePath))
+            if (string.IsNullOrEmpty(filePath))
             {
-                throw new ArgumentException("Can't process empty file path.", nameof(inputFilePath));
+                throw new ArgumentException("Can't process empty file path.", nameof(filePath));
             }
 
-            var text = File.ReadAllText(inputFilePath);
+            if(!File.Exists(filePath))
+            {
+                throw new ArgumentException("File does not exist.", nameof(filePath));
+            }
+
+            var text = File.ReadAllText(filePath);
             return stringSplitter.Split(text);
         }
     }

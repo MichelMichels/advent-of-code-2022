@@ -8,7 +8,7 @@ namespace AdventOfCode2022.Shared
 {
     public interface IInputParser
     {
-        string[] ParseTextFile(string inputFilePath);
+        string[] ParseTextFile(string filePath);
         string[] ParseString(string content);
     }
 }

@@ -15,5 +15,6 @@ namespace AdventOfCode2022.Shared
         void WriteAnswer(string answer);
         void WriteMessage(string message);
         void WriteNewLine();
+        void WriteError(string message);
     }
 }

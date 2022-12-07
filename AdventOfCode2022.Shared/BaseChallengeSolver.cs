@@ -25,22 +25,34 @@ namespace AdventOfCode2022.Shared
             messageWriter.WriteBanner();
             messageWriter.WriteDayBanner(DayNumber);
 
-            ParseFile(filePath);
-            AfterParsing();
+            try
+            {
+                ParseFile(filePath);
+                AfterParsing();
 
-            messageWriter.WritePartBanner(1);
-            SolvePartOne();
+                messageWriter.WritePartBanner(1);
+                SolvePartOne();
 
-            messageWriter.WritePartBanner(2);
-            SolvePartTwo();
+                messageWriter.WritePartBanner(2);
+                SolvePartTwo();
+            } catch(Exception ex)
+            {
+                messageWriter.WriteError($"Exception thrown: {ex.Message}");
+            }
         }
 
         protected virtual void AfterParsing()
         {
             messageWriter.WriteNewLine();
         }
-        protected abstract void SolvePartOne();
-        protected abstract void SolvePartTwo();
+        protected virtual void SolvePartOne()
+        {
+            messageWriter.WriteMessage("Part one not implemented.");
+        }
+        protected virtual void SolvePartTwo()
+        {
+            messageWriter.WriteMessage("Part two not implemented.");
+        }
 
         private void ParseFile(string filePath)
         {

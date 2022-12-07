@@ -36,6 +36,12 @@
             consoleWriter.WriteLine($"[*] Part {part}", ConsoleColor.Cyan);
         }
         public void WriteNewLine() => consoleWriter.WriteLine();
+
+        public void WriteError(string message)
+        {
+            consoleWriter.WriteLine($"[!] {message}", ConsoleColor.DarkRed);
+            consoleWriter.WriteLine();
+        }
     }
 
 }
