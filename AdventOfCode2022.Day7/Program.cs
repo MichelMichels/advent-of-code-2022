@@ -10,6 +10,8 @@ IHost host = Host.CreateDefaultBuilder(args)
             .AddSingleton<IStringSplitter, NewLineSplitter>()
             .AddSingleton<IConsoleWriter, ConsoleWriter>() 
             .AddSingleton<IMessageWriter, ConsoleMessageWriter>()
+            .AddSingleton<ITerminalParser, TerminalParser>()    
+            .AddSingleton<ITerminalEmulator, TerminalEmulator>()
             .AddSingleton<IChallengeSolver, Day7Solver>())
     .Build();
 
