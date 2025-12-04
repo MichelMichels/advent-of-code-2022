@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace AdventOfCode2022.Day7
 {
@@ -12,7 +8,7 @@ namespace AdventOfCode2022.Day7
 
         public Directory(string name)
         {
-            Name = name;            
+            Name = name;
         }
         public Directory(string name, Directory parent) : this(name)
         {
@@ -22,7 +18,7 @@ namespace AdventOfCode2022.Day7
         public string Name { get; }
         public List<IFileSystemEntry> Children => children;
         public Directory? Parent { get; set; }
-        public int Size => children.Sum(x => x.Size);   
+        public int Size => children.Sum(x => x.Size);
 
         public void Add(IFileSystemEntry entry)
         {
@@ -40,7 +36,7 @@ namespace AdventOfCode2022.Day7
                 foreach (var directory in Children.OfType<Directory>())
                 {
                     var result = directory.FindDirectory(name);
-                    if(result != null)
+                    if (result != null)
                     {
                         return result;
                     }
@@ -49,16 +45,16 @@ namespace AdventOfCode2022.Day7
                 return null;
             }
         }
-        public List<Directory> GetDirectoriesOfMaximumSize(int maximumSize, List<Directory> directories = null)
+        public List<Directory> GetDirectoriesOfMaximumSize(int maximumSize, List<Directory> directories = null!)
         {
             directories ??= new List<Directory>();
 
-            if(Size <= maximumSize)
+            if (Size <= maximumSize)
             {
                 directories.Add(this);
             }
 
-            foreach(var directory in children.OfType<Directory>())
+            foreach (var directory in children.OfType<Directory>())
             {
                 directory.GetDirectoriesOfMaximumSize(maximumSize, directories);
             }
@@ -82,10 +78,10 @@ namespace AdventOfCode2022.Day7
         {
             var builder = new StringBuilder();
             builder.AppendLine($"- {Name} (dir)");
-            foreach(var child in children)
+            foreach (var child in children)
             {
                 builder.AppendLine("  " + child.ToString());
-            }            
+            }
 
             return builder.ToString().Trim();
         }

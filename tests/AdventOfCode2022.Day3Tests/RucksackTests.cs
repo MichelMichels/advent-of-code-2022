@@ -1,11 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Day3;
-using System;
-using System.Collections.Generic;
-using Moq;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Moq;
 
 namespace AdventOfCode2022.Day3.Tests
 {
@@ -13,7 +6,7 @@ namespace AdventOfCode2022.Day3.Tests
     public class RucksackTests
     {
         private Mock<IStringIntersecter> mockedStringIntersecter = new();
-        
+
         [TestInitialize]
         public void TestInitialize()
         {
@@ -29,7 +22,7 @@ namespace AdventOfCode2022.Day3.Tests
             // Act
 
             // Assert
-            Assert.ThrowsException<NullReferenceException>(() => rucksack.Fill(null));
+            Assert.Throws<NullReferenceException>(() => rucksack.Fill(null!));
         }
 
         [TestMethod]

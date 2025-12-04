@@ -1,11 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Day2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 
 namespace AdventOfCode2022.Day2.Tests
 {
@@ -18,8 +11,8 @@ namespace AdventOfCode2022.Day2.Tests
             var mockedParser = new Mock<IRockPaperScissorParser>();
             IRockPaperScissorEngine engine = new RockPaperScissorEngine(mockedParser.Object);
 
-            Assert.ThrowsException<ArgumentException>(() => engine.GetTotalScore(null));
-            Assert.ThrowsException<ArgumentException>(() => engine.GetTotalScore(string.Empty));
+            Assert.Throws<ArgumentException>(() => engine.GetTotalScore(null!));
+            Assert.Throws<ArgumentException>(() => engine.GetTotalScore(string.Empty));
         }
 
         [TestMethod]

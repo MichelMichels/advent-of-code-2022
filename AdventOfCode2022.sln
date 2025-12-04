@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33110.190
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day1", "src\AdventOfCode2022.Day1\AdventOfCode2022.Day1.csproj", "{E5078432-98AF-47EF-97FF-3F2DE31B7AF2}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day7", "src\AdventOfCode2022.Day7\AdventOfCode2022.Day7.csproj", "{C05E247B-0B8D-4261-9F87-4DCF651FA741}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day7Tests", "tests\AdventOfCode2022.Day7Tests\AdventOfCode2022.Day7Tests.csproj", "{A6475C86-5F37-4C43-A038-083770D7923B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B363CE5F-7C9C-4A31-BCAD-3E0C063EBC21} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{F3160B03-5A9C-441A-A1EE-36C3BCEA7AF0} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{17D961E5-C437-4CE9-B8DB-14F9D44F0BCC} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{B1247017-8F20-4E23-AF04-31BF23792BEB} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{F785155D-F779-4BD3-AF94-C3DAE08EA0E5} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{6999867C-3E4B-43AC-9298-7C612EC4AC38} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{BD4CA198-6C53-4BD1-A226-86E422F9CC20} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{A6475C86-5F37-4C43-A038-083770D7923B} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0B7E1A0-5AE8-42BA-92A2-4F675B5833A2}

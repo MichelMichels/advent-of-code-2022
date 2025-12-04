@@ -1,12 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Day1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022.Day1.Tests
+﻿namespace AdventOfCode2022.Day1.Tests
 {
     [TestClass()]
     public class ElfCalorieCounterTests
@@ -18,8 +10,8 @@ namespace AdventOfCode2022.Day1.Tests
             var counter = new ElfCalorieCounter();
 
             // Act
-            Assert.ThrowsException<ArgumentException>(() => counter.GetMaxCalorieCountOfSingleElf(null));
-            Assert.ThrowsException<ArgumentException>(() => counter.GetMaxCalorieCountOfSingleElf(string.Empty));
+            Assert.Throws<ArgumentException>(() => counter.GetMaxCalorieCountOfSingleElf(null!));
+            Assert.Throws<ArgumentException>(() => counter.GetMaxCalorieCountOfSingleElf(string.Empty));
         }
 
         [TestMethod]
@@ -29,8 +21,8 @@ namespace AdventOfCode2022.Day1.Tests
             var counter = new ElfCalorieCounter();
 
             // Act
-            Assert.ThrowsException<ArgumentException>(() => counter.GetSumCaloriesOfTopElves(null, 3));
-            Assert.ThrowsException<ArgumentException>(() => counter.GetSumCaloriesOfTopElves(string.Empty, 3));
+            Assert.Throws<ArgumentException>(() => counter.GetSumCaloriesOfTopElves(null!, 3));
+            Assert.Throws<ArgumentException>(() => counter.GetSumCaloriesOfTopElves(string.Empty, 3));
         }
 
         [TestMethod()]

@@ -1,11 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 
 namespace AdventOfCode2022.Shared.Tests
 {
@@ -19,7 +12,7 @@ namespace AdventOfCode2022.Shared.Tests
             IInputParser inputParser = new InputParser(new Mock<IStringSplitter>().Object);
 
             // Act
-            Assert.ThrowsException<ArgumentException>(() => inputParser.ParseTextFile(null));
+            Assert.Throws<ArgumentException>(() => inputParser.ParseTextFile(null!));
         }
 
         [TestMethod()]
@@ -29,7 +22,7 @@ namespace AdventOfCode2022.Shared.Tests
             IInputParser inputParser = new InputParser(new Mock<IStringSplitter>().Object);
 
             // Act
-            Assert.ThrowsException<ArgumentException>(() => inputParser.ParseTextFile(string.Empty));
+            Assert.Throws<ArgumentException>(() => inputParser.ParseTextFile(string.Empty));
         }
     }
 }

@@ -1,12 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2022.Day3;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdventOfCode2022.Shared;
 using Moq;
-using AdventOfCode2022.Shared;
 
 namespace AdventOfCode2022.Day3.Tests
 {
@@ -16,10 +9,10 @@ namespace AdventOfCode2022.Day3.Tests
         [TestMethod]
         public void ThrowsArgumentNullExceptions()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new ElfStorageRoom(null, new Mock<IRucksackFactory>().Object, new Mock<IStringIntersecter>().Object, new Mock<IStringSplitter>().Object));
-            Assert.ThrowsException<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, null, new Mock<IStringIntersecter>().Object, new Mock<IStringSplitter>().Object));
-            Assert.ThrowsException<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, new Mock<IRucksackFactory>().Object, null, new Mock<IStringSplitter>().Object));
-            Assert.ThrowsException<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, new Mock<IRucksackFactory>().Object, new Mock<IStringIntersecter>().Object, null));
+            Assert.Throws<ArgumentNullException>(() => new ElfStorageRoom(null!, new Mock<IRucksackFactory>().Object, new Mock<IStringIntersecter>().Object, new Mock<IStringSplitter>().Object));
+            Assert.Throws<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, null!, new Mock<IStringIntersecter>().Object, new Mock<IStringSplitter>().Object));
+            Assert.Throws<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, new Mock<IRucksackFactory>().Object, null!, new Mock<IStringSplitter>().Object));
+            Assert.Throws<ArgumentNullException>(() => new ElfStorageRoom(new Mock<IPriorityCalculator>().Object, new Mock<IRucksackFactory>().Object, new Mock<IStringIntersecter>().Object, null!));
         }
 
         [TestMethod()]
