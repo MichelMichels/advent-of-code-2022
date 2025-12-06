@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11222.15 d18.0
+VisualStudioVersion = 18.0.11222.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Day1", "src\AdventOfCode2022.Day1\AdventOfCode2022.Day1.csproj", "{E5078432-98AF-47EF-97FF-3F2DE31B7AF2}"
 EndProject
@@ -43,6 +43,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day9", "src\AdventOfCode2022.Day9\AdventOfCode2022.Day9.csproj", "{6FF474E7-5D30-4CC7-9DB1-A72DC5BEAC49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Day9Tests", "tests\AdventOfCode2022.Day9Tests\AdventOfCode2022.Day9Tests.csproj", "{737A85E5-A19F-40EC-B091-CF34F330DD49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,6 +122,14 @@ Global
 		{51D1458F-48A7-4718-B1C2-6A73DE93D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51D1458F-48A7-4718-B1C2-6A73DE93D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51D1458F-48A7-4718-B1C2-6A73DE93D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF474E7-5D30-4CC7-9DB1-A72DC5BEAC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF474E7-5D30-4CC7-9DB1-A72DC5BEAC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF474E7-5D30-4CC7-9DB1-A72DC5BEAC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF474E7-5D30-4CC7-9DB1-A72DC5BEAC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737A85E5-A19F-40EC-B091-CF34F330DD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737A85E5-A19F-40EC-B091-CF34F330DD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737A85E5-A19F-40EC-B091-CF34F330DD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737A85E5-A19F-40EC-B091-CF34F330DD49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +143,7 @@ Global
 		{6999867C-3E4B-43AC-9298-7C612EC4AC38} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
 		{BD4CA198-6C53-4BD1-A226-86E422F9CC20} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
 		{A6475C86-5F37-4C43-A038-083770D7923B} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
+		{737A85E5-A19F-40EC-B091-CF34F330DD49} = {5E9D0BCF-4DE3-4DA1-9938-7DFB4774A0EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0B7E1A0-5AE8-42BA-92A2-4F675B5833A2}
