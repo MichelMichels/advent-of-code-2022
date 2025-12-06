@@ -5,8 +5,10 @@ namespace AdventOfCode2022.Day9.Services;
 
 public class RopeMover : IRopeMover
 {
-    public void Move(Rope rope, Motion motion)
+    public HashSet<Position> Move(Rope rope, Motion motion)
     {
+        HashSet<Position> tailPositions = [];
+        tailPositions.Add(rope.Tail);
 
         for (int i = 0; i < motion.Steps; i++)
         {
@@ -24,10 +26,27 @@ public class RopeMover : IRopeMover
 
                 if (isTailInSameColumn || isTailInSameRow)
                 {
-                    rope.Tail = Move(rope.Tail, motion.Direction);
+                    Position tail = Move(rope.Tail, motion.Direction);
+                    tailPositions.Add(tail);
+                    rope.Tail = tail;
+                }
+                else
+                {
+                    // We have to move diagonally
+                    //     4              2
+                    int differenceX = rope.Head.X - rope.Tail.X;
+                    int differenceY = rope.Head.Y - rope.Tail.Y;
+
+                    Position tail = Move(rope.Tail, differenceX > 0 ? Direction.Right : Direction.Left);
+                    tail = Move(tail, differenceY > 0 ? Direction.Down : Direction.Up);
+
+                    tailPositions.Add(tail);
+                    rope.Tail = tail;
                 }
             }
         }
+
+        return tailPositions;
     }
 
     private Position Move(Position position, Direction direction)

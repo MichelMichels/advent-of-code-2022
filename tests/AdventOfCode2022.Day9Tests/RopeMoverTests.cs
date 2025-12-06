@@ -109,6 +109,33 @@ public sealed class RopeMoverTests
     }
 
     [TestMethod]
+    public void MoveRope_Down_Diagonal_Test()
+    {
+        // Arrange
+        RopeMover ropeMover = new();
+        Rope rope = new()
+        {
+            Head = new(1, 1),
+            Tail = new(0, 0),
+        };
+        Motion motion = new()
+        {
+            Direction = Direction.Down,
+            Steps = 1,
+        };
+        Position expectedHeadEndPosition = new(1, 2);
+        Position expectedTailEndPosition = new(1, 1);
+
+        // Act
+        HashSet<Position> tailPositions = ropeMover.Move(rope, motion);
+
+        // Assert
+        Assert.AreEqual(expectedHeadEndPosition, rope.Head);
+        Assert.AreEqual(expectedTailEndPosition, rope.Tail);
+        Assert.HasCount(2, tailPositions);
+    }
+
+    [TestMethod]
     [DataRow(1, 1, Direction.Down, 1, 1, 2, 1, 1)]
     [DataRow(1, 1, Direction.Down, 3, 1, 4, 1, 3)]
     [DataRow(1, 1, Direction.Up, 1, 1, 0, 1, 1)]
